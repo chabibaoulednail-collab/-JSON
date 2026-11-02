@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="الموقع الرسمي لنادي شبيبة أولاد نايل لكرة القدم">
+  <meta name="theme-color" content="#570912">
+  <title>شبيبة أولاد نايل | J.S.O.N</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+
+  <a class="brand" href="#" onclick="showPage('home');return false;">
+    <img src="json.jpg" alt="شعار شبيبة أولاد نايل">
+    <div>
+      <h2>شبيبة أولاد نايل</h2>
+      <span>CHABIBA OULED NAIL</span>
+    </div>
+  </a>
+
+  <button class="menu-toggle" type="button"
+    onclick="toggleMenu()" aria-label="فتح القائمة">☰</button>
+
+  <nav class="nav" id="nav">
+    <button class="nav-btn active" onclick="showPage('home',this)">الرئيسية</button>
+    <button class="nav-btn" onclick="showPage('team',this)">الفريق</button>
+    <button class="nav-btn" onclick="showPage('categories',this)">الأصناف</button>
+    <button class="nav-btn" onclick="showPage('gallery',this)">الصور</button>
+    <button class="nav-btn" onclick="showPage('news',this)">الأخبار</button>
+    <button class="nav-btn" onclick="showPage('contact',this)">اتصل بنا</button>
+  </nav>
+
+</header>
+
+<main>
+
+  <!-- الصفحة الرئيسية -->
+  <section class="page active" id="home">
+
+    <div class="hero">
+      <div class="hero-content">
+        <span class="hero-label">الموقع الرسمي للنادي</span>
+        <h1>شبيبة أولاد نايل</h1>
+        <h2>CHABIBA OULED NAIL</h2>
+        <p>العراقة والطموح وروح الانتصار</p>
+
+        <button class="main-button" onclick="showPage('categories')">
+          اكتشف فرق النادي
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h2 class="section-title">مرحباً بكم في الموقع الرسمي</h2>
+
+      <p class="intro">
+        تابعوا أخبار شبيبة أولاد نايل، نتائج المباريات،
+        صور اللاعبين ومختلف نشاطات النادي.
+      </p>
+
+      <h2 class="section-title">أجواء النادي</h2>
+
+      <div class="gallery-grid">
+        <img src="images/home1.jpg" alt="النادي">
+        <img src="images/home2.jpg" alt="النادي">
+        <img src="images/home3.jpg" alt="النادي">
+      </div>
+
+      <div class="center">
+        <button class="main-button" onclick="showPage('gallery')">
+          مشاهدة جميع الصور
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- الفريق -->
+  <section class="page" id="team">
+
+    <div class="container">
+
+      <h1 class="page-title">عن النادي</h1>
+
+      <div class="team-box">
+
+        <img src="json.jpg" alt="شعار النادي">
+
+        <div class="team-info">
+
+          <h2>شبيبة أولاد نايل</h2>
+          <h3>CHABIBA OULED NAIL</h3>
+
+          <p>
+            مرحباً بكم في الموقع الرسمي لنادي شبيبة أولاد نايل.
+            نعمل على تطوير كرة القدم وتكوين المواهب الشابة
+            وتشجيع الروح الرياضية والعمل الجماعي.
+          </p>
+
+          <div class="info-line">
+            <strong>سنة التأسيس:</strong>
+            <span>2019</span>
+          </div>
+
+          <div class="info-line">
+            <strong>المقر:</strong>
+            <span>أولاد نايل - الجلفة</span>
+          </div>
+
+          <div class="info-line">
+            <strong>النشاط:</strong>
+            <span>كرة القدم</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- الأصناف -->
+  <section class="page" id="categories">
+
+    <div class="container">
+
+      <h1 class="page-title">أصناف النادي</h1>
+
+      <p class="intro">
+        اختر الفئة لمشاهدة الصورة الجماعية وقائمة اللاعبين.
+      </p>
+
+      <div class="category-buttons">
+        <button onclick="showCategory('u15')">U15</button>
+        <button onclick="showCategory('u17')">U17</button>
+        <button onclick="showCategory('u20')">U20</button>
+        <button onclick="showCategory('senior')">الأكابر</button>
+      </div>
+
+      <div id="category-content"></div>
+
+    </div>
+  </section>
+
+  <!-- معرض الصور -->
+  <section class="page" id="gallery">
+
+    <div class="container">
+
+      <h1 class="page-title">معرض الصور</h1>
+
+      <p class="intro">
+        صور المباريات والتدريبات والاحتفالات والأنشطة الرياضية.
+      </p>
+
+      <div class="gallery-grid" id="gallery-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- الأخبار -->
+  <section class="page" id="news">
+
+    <div class="container">
+
+      <h1 class="page-title">أخبار النادي</h1>
+
+      <p class="intro">
+        تابعوا آخر المستجدات والأخبار الخاصة بشبيبة أولاد نايل.
+      </p>
+
+      <div class="news-grid" id="news-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- اتصل بنا -->
+  <section class="page" id="contact">
+
+    <div class="container">
+
+      <h1 class="page-title">اتصل بنا</h1>
+
+      <div class="contact-box">
+
+        <div class="contact-item">
+          <span class="contact-icon">☎</span>
+          <h3>الهاتف الأول</h3>
+          <a href="tel:+213000000000">أضف الرقم الأول</a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">☎</span>
+          <h3>الهاتف الثاني</h3>
+          <a href="tel:+213000000000">أضف الرقم الثاني</a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <h3>مقر النادي</h3>
+          <p>شبيبة اولاد نايل - الجلفة</p>
+        </div>
+
+        <a class="facebook-link"
+           href="https://www.facebook.com/profile.php?id=100064392780339&locale=ar_AR"
+           target="_blank"
+           rel="noopener">
+          <span>f</span>
+          صفحتنا الرسمية على فيسبوك
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- أسفل الموقع -->
+<footer>
+
+  <img src="json.jpg" alt="شعار النادي">
+
+  <h3>شبيبة أولاد نايل</h3>
+  <p>JEUNESSE OULED NAIL</p>
+  <p>J.S.O.N - 2019</p>
+
+  <div class="footer-line"></div>
+
+  <p>جميع الحقوق محفوظة © 2026</p>
+
+</footer>
+
+<!-- نافذة تكبير الصور -->
+<div id="image-lightbox" class="lightbox"
+     role="dialog" aria-modal="true" aria-label="عرض الصورة الكبيرة">
+
+  <button class="lightbox-close" type="button"
+          onclick="closeLightbox()" aria-label="إغلاق">×</button>
+
+  <img id="lightbox-image" src="" alt="صورة مكبرة">
+
+  <p id="lightbox-caption"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
